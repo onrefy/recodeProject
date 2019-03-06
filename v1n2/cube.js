@@ -1,12 +1,10 @@
 class Cube {
     points = [];
     lines = [];
-    constructor(size) {
-        getPoints();
-        getLines();
-
+    constructor() {
+        this.initPoints();
     }
-    getPoints() {
+    initPoints() {
         let pt = {
             x: 0,
             y: 0,
@@ -18,16 +16,24 @@ class Cube {
                     pt.x = .5 * ((i % 2) - .5) * 2;
                     pt.y = .5 * ((j % 2) - .5) * 2;
                     pt.z = .5 * ((k % 2) - .5) * 2;
-                    this.points.push(pt);
+                    this.points.push({x:pt.x, y:pt.y, z:pt.z});
                 }
             }
         }
     }
-    render() {
-        lines.forEach((e, i, a) => {
+    lineRender() {
+        this.lines.forEach((e, i, a) => {
             stroke(lineColor);
             strokeWeight(lineWidth);
             line(e.s.x, e.s.y, e.s.z, e.e.x, e.e.y, e.e.z);
         })
+    }
+    
+    ptRender(){
+        this.points.forEach((e) => {
+            e.z = 0;
+            stroke('#ffffff');
+            point(e.x * 100, e.y * 100);
+        });
     }
 }
