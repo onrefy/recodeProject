@@ -9,9 +9,6 @@ function gridRender(){
 
 }
 
-var testCube = new Cube();
-const c = [[1, 2], [4, 3]];
-const d = [[1, 2, 3], [3, -4, 7]];
 
 console.log(math.multiply(c, d));   
 function setup() {
