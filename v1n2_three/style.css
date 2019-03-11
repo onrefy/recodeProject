@@ -2,3 +2,10 @@
     margin: 0;
     padding: 0;
 }
+
+.name{
+    color:white;
+    position: fixed;
+    left: 2em;
+    top: 2em;
+}

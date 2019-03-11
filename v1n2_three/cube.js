@@ -38,7 +38,7 @@ class Cube {
     level = 0;
     threePoints = [];
     material = new THREE.LineBasicMaterial({
-        color: 0x00ffff,
+        color: 0xffffff,
         linewidth: 10
     });
     constructor(level, x, y, size = 100) {
@@ -199,6 +199,20 @@ class Cube {
         }
         this.points = newPoints;
         this.move(this.x, this.y);
+        this.updateThreePoints();
+    }
+    scale(cx,cy,k){
+        var newPoints = [];
+        this.points.forEach((e) => {
+            newPoints.push({
+                x: cx + (e.x - cx) * k,
+                y: cy + (e.y - cy) * k,
+                z: e.z
+            })
+        });
+        this.x = cx + (this.x - cx) * k;
+        this.y = cy + (this.y - cy) * k;
+        this.points = newPoints;
         this.updateThreePoints();
     }
 }
